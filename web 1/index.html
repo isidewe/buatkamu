@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff2f5">
+  <title>Pesan Spesial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <div class="topline"><span class="sparkle">✦</span> A LITTLE NOTE FOR YOU <span class="sparkle">✦</span></div>
+
+    <!-- HALAMAN 1: PASSWORD -->
+    <section class="page active" id="page-password" aria-labelledby="password-title">
+      <div class="icon-bubble lock-icon" aria-hidden="true">♡</div>
+      <p class="eyebrow">SEBUAH PESAN RAHASIA</p>
+      <h1 id="password-title">Sebelum masuk...</h1>
+      <p class="muted">Ada satu sandi kecil yang harus kamu masukkan terlebih dahulu.</p>
+      <form id="password-form" class="stack">
+        <label class="sr-only" for="password-input">Masukkan sandi</label>
+        <input id="password-input" type="password" placeholder="Masukkan sandi..." autocomplete="off" required>
+        <p class="error" id="password-error" role="alert" aria-live="polite"></p>
+        <button class="button primary" type="submit">Buka pesan <span>→</span></button>
+      </form>
+      <p class="tiny-note">Petunjuk: coba ingat sesuatu yang pernah kita bicarakan 😉</p>
+    </section>
+
+    <!-- HALAMAN 2: PEMBUKA -->
+    <section class="page" id="page-welcome" aria-labelledby="welcome-title" hidden>
+      <div class="illustration" aria-hidden="true"><span>♡</span><span>✦</span><span>♡</span></div>
+      <p class="eyebrow">HAI, <span data-recipient></span>!</p>
+      <h1 id="welcome-title">Ada sesuatu yang ingin kusampaikan.</h1>
+      <p class="muted">Mungkin sedikit sederhana, tapi aku menyiapkannya khusus untukmu.</p>
+      <button class="button primary" type="button" data-go="page-reasons">Lanjut, yuk <span>→</span></button>
+    </section>
+
+    <!-- HALAMAN 3: ALASAN -->
+    <section class="page" id="page-reasons" aria-labelledby="reasons-title" hidden>
+      <p class="eyebrow">SEDIKIT CERITA</p>
+      <h1 id="reasons-title">Ada beberapa hal yang kusuka darimu.</h1>
+      <p class="muted">Bukan daftar yang sempurna, hanya hal-hal kecil yang berarti.</p>
+      <div class="reason-list" id="reason-list"></div>
+      <button class="button primary" type="button" data-go="page-response">Ada satu hal lagi <span>→</span></button>
+    </section>
+
+    <!-- HALAMAN 4: JAWABAN PENERIMA -->
+    <section class="page" id="page-response" aria-labelledby="confession-title" hidden>
+      <div class="icon-bubble heart-icon" aria-hidden="true">♥</div>
+      <p class="eyebrow">DARI <span data-sender></span>, UNTUK <span data-recipient></span></p>
+      <h1 id="confession-title">Sebenarnya, aku punya perasaan lebih.</h1>
+      <p class="confession-copy" id="confession-copy"></p>
+
+      <form id="response-form" class="response-form">
+        <fieldset class="answer-fieldset">
+          <legend class="question">Bagaimana perasaanmu?</legend>
+          <label class="answer-option">
+            <input type="radio" name="answer" value="yes" required>
+            <span>Aku juga punya perasaan yang sama ♡</span>
+          </label>
+          <label class="answer-option">
+            <input type="radio" name="answer" value="no">
+            <span>Aku lebih nyaman berteman</span>
+          </label>
+          <label class="answer-option">
+            <input type="radio" name="answer" value="later">
+            <span>Aku butuh waktu untuk memikirkannya</span>
+          </label>
+        </fieldset>
+
+        <label class="field-label" for="reply-message">Ada pesan tambahan? <span>(opsional)</span></label>
+        <textarea id="reply-message" name="reply-message" rows="3" maxlength="500" placeholder="Tulis jawabanmu di sini..."></textarea>
+        <p class="answer-note">Jawabanmu akan dibuka di WhatsApp. Kamu masih bisa membaca dan mengedit pesannya sebelum mengirim.</p>
+        <p class="error" id="response-error" role="alert" aria-live="polite"></p>
+        <button class="button primary" type="submit">Kirim jawaban lewat WhatsApp <span>↗</span></button>
+      </form>
+    </section>
+
+    <footer>dibuat dengan sepenuh hati <span>♥</span></footer>
+  </main>
+</body>
+</html>
